@@ -1,83 +1,27 @@
-# Insurance Charges Prediction using Polynomial Regression
+# Titanic Survival Prediction
 
-## 📌 Project Overview
-This project analyzes the **Insurance dataset** to predict medical insurance charges based on customer attributes such as age, BMI, smoking status, and region.
+This project uses **Logistic Regression** to predict passenger survival on the Titanic using the [Kaggle Titanic Dataset](https://www.kaggle.com/c/titanic).
 
-Since the relationship between features (especially BMI) and insurance charges is **non-linear**, both **Linear Regression** and **Polynomial Regression** models are implemented and compared.
+## Overview
+- Train a model to predict `Survived`.
+- Handle missing data (`Age`, `Embarked`, `Cabin`).
+- Encode categorical variables (`Sex`, `Embarked`).
+- Evaluate with accuracy, confusion matrix, and classification report.
+- Generate Kaggle submission file.
 
----
+## Data Preprocessing
+- Fill `Age` with median, `Embarked` with mode.
+- Drop `Cabin` and irrelevant columns (`PassengerId`, `Name`, `Ticket`).
+- Convert `Sex` to numeric and one-hot encode `Embarked`.
 
-## 📊 Dataset Description
-The dataset contains the following features:
+## Model
+- Logistic Regression trained on 80% of data, validated on 20%.
+- Evaluate performance with accuracy and confusion matrix.
 
-| Feature | Description |
-|-------|------------|
-| age | Age of the insured person |
-| sex | Gender (male/female) |
-| bmi | Body Mass Index |
-| children | Number of children covered |
-| smoker | Smoking status (yes/no) |
-| region | Residential region |
-| charges | Medical insurance cost (target variable) |
+## Kaggle Submission
+- Apply same preprocessing to test set.
+- Predict `Survived` and save as `titanic_submission.csv`.
 
----
-
-## 🧪 Steps Performed
-
-### 1️⃣ Data Exploration (EDA)
-- Displayed dataset structure and summary statistics
-- Checked for missing values
-- Visualized **BMI vs Charges** with smoker status
-
-### 2️⃣ Data Preprocessing
-- Converted categorical variables (`sex`, `smoker`, `region`) into numeric values using **Label Encoding**
-- Ensured dataset is fully numerical for regression models
-
-### 3️⃣ Model Training
-- Split data into **80% training** and **20% testing**
-- Trained:
-  - **Linear Regression (Degree 1)**
-  - **Polynomial Regression (Degree 2)**
-
-### 4️⃣ Model Evaluation
-Used the following metrics:
-- **RMSE (Root Mean Squared Error)**
-- **R² Score**
-
-A comparison table and bar chart were generated to evaluate performance.
-
-### 5️⃣ Overfitting Analysis
-- Trained Polynomial Regression models with degrees **1 to 4**
-- Plotted **Model Complexity vs Error**
-- Identified **Degree 2** as the optimal balance between bias and variance
-
----
-
-## 📈 Visualizations Included
-- BMI vs Charges scatter plot (colored by smoker status)
-- RMSE comparison bar chart
-- Actual vs Predicted charges plot
-- Polynomial degree vs RMSE (Overfitting analysis)
-
----
-
-## 🏆 Results Summary
-- Polynomial Regression (Degree 2) outperforms Linear Regression
-- Higher degrees lead to overfitting
-- Smoking status has a strong impact on insurance charges
-
----
-
-## 🛠️ Technologies Used
-- Python
-- Pandas, NumPy
-- Matplotlib, Seaborn
-- Scikit-learn
-
----
-
-## 🚀 How to Run
-1. Clone the repository
-2. Install required libraries:
-   ```bash
-   pip install pandas numpy matplotlib seaborn scikit-learn
+## Requirements
+- Python 3.x
+- `numpy`, `pandas`, `matplotlib`, `seaborn`, `scikit-learn`
